@@ -23,29 +23,16 @@
       <!----------------------- Login Container -------------------------->
 
       <div class="row border rounded-5 p-3 bg-white shadow box-area">
-        <!--------------------------- Left Box ----------------------------->
+        <!--------------------------- Left Box ------------------------------>
 
         <div
           class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-          style="background: url(img/foreground.jpg)"
+          style="background: url({% static "img/foreground.jpg" %})"
         >
           <div class="featured-image mb-3">
             <img src="img/logo.png" class="img-fluid" style="width: 250px" />
           </div>
-          <!-- <p
-            class="text-black fs-2"
-            style="
-              font-family: 'Courier New', Courier, monospace;
-              font-weight: 600;
-            "
-          >
-            Be Verified
-          </p>
-          <small
-            class="text-black text-wrap text-center"
-            style="width: 17rem; font-family: 'Courier New', Courier, monospace"
-            >Join experienced Designers on this platform.</small
-          > -->
+          
         </div>
 
         <!-------------------- ------ Right Box ---------------------------->
@@ -61,7 +48,7 @@
               <div class="input-group mb-3">
                 <input
                   type="text"
-                  name='username'
+                  name='email'
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Email address"
                 />
@@ -69,6 +56,7 @@
               <div class="input-group mb-2">
                 <input
                   type="text"
+                  name='username'
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Username"
                 />
@@ -76,6 +64,7 @@
               <div class="input-group mb-2">
                 <input
                   type="password"
+                  name='password'
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Password"
                 />
@@ -85,7 +74,7 @@
               <button class="btn btn-lg btn-primary w-100 fs-6">Login</button>
             </div>
             <div class="input-group mb-3">
-              <button class="btn btn-lg btn-light w-100 fs-6">
+              <button type="submit" class="btn btn-lg btn-light w-100 fs-6">
                 <img
                   src="img/google.png"
                   style="width: 20px"
