@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +11,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="signIn.css" />
+    <link rel="stylesheet" href="{% static "signIn.css" %}" />
     <title>Login Page</title>
   </head>
   <body class="bg-success bg-gradient">
@@ -22,11 +23,11 @@
       <!----------------------- Login Container -------------------------->
 
       <div class="row border rounded-5 p-3 bg-white shadow box-area">
-        <!--------------------------- Left Box ----------------------------->
+        <!--------------------------- Left Box ------------------------------>
 
         <div
           class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-          style="background: url(img/foreground.jpg)"
+          style="background: url({% static "img/foreground.jpg" %})"
         >
           <div class="featured-image mb-3">
             <img src="img/logo.png" class="img-fluid" style="width: 250px" />
@@ -41,17 +42,20 @@
               <h2>Hello,Again</h2>
               <p>We are happy to have you back.</p>
             </div>
-            <form action="">
+            <form action="" method="post">
+              {% csrf_token %}
               <div class="input-group mb-3">
                 <input
                   type="text"
                   class="form-control form-control-lg bg-light fs-6"
+                  name="email"
                   placeholder="Email address"
                 />
               </div>
               <div class="input-group mb-1">
                 <input
                   type="password"
+                  name="password"
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Password"
                 />

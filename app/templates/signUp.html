@@ -23,15 +23,19 @@
       <!----------------------- Login Container -------------------------->
 
       <div class="row border rounded-5 p-3 bg-white shadow box-area">
-        <!--------------------------- Left Box ----------------------------->
+        <!--------------------------- Left Box ------------------------------>
 
         <div
           class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-          style="background: url(img/foreground.jpg)"
+          style="background: url({% static "img/foreground.jpg" %})"
         >
           <div class="featured-image mb-3">
             <img src="img/logo.png" class="img-fluid" style="width: 250px" />
           </div>
+<<<<<<< HEAD
+=======
+          
+>>>>>>> ce0b9d12f117a4730807997361f0aaab4bbf0c29
         </div>
 
         <!-------------------- ------ Right Box ---------------------------->
@@ -42,10 +46,12 @@
               <h2>Hello</h2>
               <p>We are happy to Have you.</p>
             </div>
-            <form action="">
-              <div class="input-group mb-2">
+            <form action="" method='post'>
+              {%csrf_token%}
+              <div class="input-group mb-3">
                 <input
                   type="text"
+                  name='email'
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Email address"
                 />
@@ -53,6 +59,7 @@
               <div class="input-group mb-2">
                 <input
                   type="text"
+                  name='username'
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Username"
                 />
@@ -60,6 +67,7 @@
               <div class="input-group mb-2">
                 <input
                   type="password"
+                  name='password'
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Password"
                 />
@@ -74,7 +82,7 @@
               />
             </div>
             <div class="input-group mb-3">
-              <button class="btn btn-lg btn-light w-100 fs-6">
+              <button type="submit" class="btn btn-lg btn-light w-100 fs-6">
                 <img
                   src="img/google.png"
                   style="width: 20px"
