@@ -56,10 +56,12 @@
               <h2>Hello</h2>
               <p>We are happy to Have you.</p>
             </div>
-            <form action="">
+            <form action="" method='post'>
+              {%csrf_token%}
               <div class="input-group mb-3">
                 <input
                   type="text"
+                  name='username'
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Email address"
                 />

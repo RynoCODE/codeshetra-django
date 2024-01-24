@@ -31,7 +31,7 @@
           <div class="featured-image mb-3">
             <img src="img/logo.png" class="img-fluid" style="width: 250px" />
           </div>
-          <!-- <p
+          <! <p
             class="text-black fs-2"
             style="
               font-family: 'Courier New', Courier, monospace;
@@ -55,17 +55,20 @@
               <h2>Hello,Again</h2>
               <p>We are happy to have you back.</p>
             </div>
-            <form action="">
+            <form action="" method="post">
+              {% csrf_token %}
               <div class="input-group mb-3">
                 <input
                   type="text"
                   class="form-control form-control-lg bg-light fs-6"
+                  name="email"
                   placeholder="Email address"
                 />
               </div>
               <div class="input-group mb-1">
                 <input
                   type="password"
+                  name="password"
                   class="form-control form-control-lg bg-light fs-6"
                   placeholder="Password"
                 />
