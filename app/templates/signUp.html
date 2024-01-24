@@ -32,10 +32,6 @@
           <div class="featured-image mb-3">
             <img src="img/logo.png" class="img-fluid" style="width: 250px" />
           </div>
-<<<<<<< HEAD
-=======
-          
->>>>>>> ce0b9d12f117a4730807997361f0aaab4bbf0c29
         </div>
 
         <!-------------------- ------ Right Box ---------------------------->
@@ -48,7 +44,7 @@
             </div>
             <form action="" method='post'>
               {%csrf_token%}
-              <div class="input-group mb-3">
+              <div class="input-group mb-2">
                 <input
                   type="text"
                   name='email'
@@ -72,23 +68,16 @@
                   placeholder="Password"
                 />
               </div>
+              <div class="input-group mb-3">
+                <input
+                  type="submit"
+                  value="Sign up"
+                  class="btn btn-lg btn-primary w-100 fs-6"
+                />
+              </div>
             </form>
-            <div class="input-group mb-3">
-              <!-- <button class="btn btn-lg btn-primary w-100 fs-6">Login</button> -->
-              <input
-                type="submit"
-                value="Sign up"
-                class="btn btn-lg btn-primary w-100 fs-6"
-              />
-            </div>
-            <div class="input-group mb-3">
-              <button type="submit" class="btn btn-lg btn-light w-100 fs-6">
-                <img
-                  src="img/google.png"
-                  style="width: 20px"
-                  class="me-2"
-                /><small>Sign In with Google</small>
-              </button>
+            
+           
             </div>
             <div class="row">
               <small>Already have account? <a href="#">Sign In</a></small>
