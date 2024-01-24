@@ -1,3 +1,4 @@
 01env/
 app/__pycache__/
 codeshetra/__pycache__/
+codeshetra/info.py
