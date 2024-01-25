@@ -51,7 +51,7 @@ def signup(request):
         to_list =  [myuser.email]
         send_mail(subject,message,from_email,to_list,fail_silently=True)
         current_site = get_current_site(request)
-        email_subject = "Confirmation for Email Registration @ Anytime Fitness"
+        email_subject = "Confirmation for Email Registration @ Codeshetra"
         message2 = render_to_string('email_confirmation.html',{
             'name': myuser.username,
             'domain': current_site.domain,
@@ -108,7 +108,5 @@ def signout(request):
     logout(request)
     messages.success(request, "Successfully logged out")
     return redirect('home')
-
-
 
 

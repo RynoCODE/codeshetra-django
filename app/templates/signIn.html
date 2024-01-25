@@ -67,11 +67,12 @@
               </div>
                 <input
                   type="submit"
-                  value="Sign up"
+                  value="Sign In"
                   class="btn btn-lg btn-primary w-100 fs-6"
                 />
 
             </form>
+            {% csrf_token %}
             <div class="input-group mb-3">
               <button class="btn btn-lg btn-light w-100 fs-6">
                 <img
