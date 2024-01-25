@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500;1,700&family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap');
 
 * {
@@ -59,8 +60,13 @@ h1 {
 }
 
 .cards:hover {
+<<<<<<< HEAD
     /* filter: grayscale(100%);
     background: url(bg-1.jpg);
+=======
+    filter: grayscale(100%);
+    background: url('../img/bg-1.jpg');
+>>>>>>> 7d56ea0d9514637a74b58dacf17500e1b9aa4b99
     /* color: black !important; */
     margin-top: 1rem;
     */
