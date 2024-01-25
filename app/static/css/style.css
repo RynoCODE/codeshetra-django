@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500;1,700&family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap');
+
+* {
+    font-family: 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.mycolor {
+    background: #FFB355;
+}
+
+.logo {
+    width: 60%;
+}
+
+.illustration {
+    width: 170%;
+    border-radius: 2rem;
+
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.text-part {
+    /* border: 2px solid red; */
+
+    /* border: 2px solid red; */
+}
+
+.hero {
+    margin-top: 4rem;
+    margin: 2rem auto 2rem auto;
+    display: flex;
+    /* border: 2px solid green; */
+    width: 90vw;
+    overflow-x: hidden;
+    gap: 5rem;
+}
+
+.cards {
+    height: 60vh;
+    width: 30vw;
+    border-radius: 1rem;
+    padding-top: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: 0.7s all;
+}
+
+.cards:hover {
+    filter: grayscale(100%);
+    background: url(bg-1.jpg);
+    /* color: black !important; */
+    margin-top: 1rem;
+
+}
+
+.about-part {
+    height: 75vh;
+}
+
+.aboutimg {
+    height: 35rem;
+    /* border: 2px solid red; */
+    border-radius: 2rem;
+
+}
+
+.about-text {
+    padding-top: 10rem;
+    /* border: 2px solid green; */
+    height: 100%
+}
