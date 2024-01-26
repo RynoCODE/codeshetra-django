@@ -103,7 +103,7 @@ def sigin(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('dashboard')
         else:
             messages.error(request, "Invalid Credentials, Please try again")
             return redirect('signin')
@@ -134,4 +134,8 @@ def signout(request):
     messages.success(request, "Successfully logged out")
     return redirect('home')
 
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
+def price(request):
+    return render(request, 'pricing.html')
