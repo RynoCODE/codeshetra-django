@@ -13,6 +13,10 @@ from . tokens import generate_token
 from django.core.mail import EmailMessage
 import razorpay
 from django.contrib.auth.decorators import login_required
+from . testing import *
+
+
+
 
 def home(request):
     return render(request, 'index.html')
@@ -23,12 +27,34 @@ def signup(request):
         email = request.POST['email']
         password = request.POST['password']
 
+        if is_valid_email(email) == False:
+            messages.error(request, "Invalid email address.")
+            return redirect('/signup')
         if User.objects.filter(username=username):
             messages.error(request, "Username alr Exists!!")
             return redirect('/signup')
         if User.objects.filter(email=email):
             messages.error(request, 'Email alr exists!!')
             return redirect('/signup')
+        #password checking
+        def password_validator(password):
+            if len(password) < 8:
+                messages.error(request, "Password must be at least 8 characters long.")
+                return redirect ('signup/') 
+            if not any(char.isupper() for char in password):
+                messages.error(request, "Password must contain at least one uppercase letter.")
+                return redirect ('signup/')
+            if not any(char.islower() for char in password):
+                messages.error(request, "Password must contain at least one lowercase letter.")
+                return redirect ('signup/')
+            if not any(char.isdigit() for char in password):
+                messages.error(request, "Password must contain at least one digit.")
+                return redirect ('signup/')
+            special_characters = r"[!@#$%^&*(),.?\":{}|<>]"
+            if not re.search(special_characters, password):
+                messages.error(request, "Password must contain at least one special character.")
+                return redirect ('signup/')
+        # password checking end
         if len(username)>10:
             messages.error(request, "Under 10 characters")
             return redirect('/signup')
