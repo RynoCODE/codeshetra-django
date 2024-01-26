@@ -13,6 +13,10 @@ a {
     background-color: transparent !important;
 }
 
+.para {
+    width: 60%;
+}
+
 .mycolor {
     background: #FFB355;
 }
