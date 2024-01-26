@@ -17,7 +17,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{% static "dashboard.css" %}" />
+    <link rel="stylesheet" href="{% static "css/dashboard.css" %}" />
   </head>
 
   <body>
@@ -26,7 +26,7 @@
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"
-            ><img src="logo.png" width="150" alt=""
+            ><img src="{% static "img/logo.png" %}" width="150" alt=""
           /></a>
         </div>
       </nav>
@@ -43,7 +43,7 @@
               type="button"
               value="Join Room"
             />
-            <img class="mt-4" src="{% static "student.png" %}" alt="" />
+            <img class="mt-4" src="{% static "img/student.png" %}" alt="" />
           </div>
           <div class="right-side">
             <h1 class="ms-5">Are You a Interviewer ?</h1>
@@ -56,7 +56,7 @@
             <button class="btn d-block mt-5 mx-auto mybtn mycolor">
               <a href="https://forms.gle/NURgqxxssQLmavPP9">Submit Details</a>
             </button>
-            <img class="mt-4" src="{% static "interview.png" %}" alt="" />
+            <img class="mt-4" src="{% static "img/interview.png" %}" alt="" />
           </div>
         </div>
       </section>
