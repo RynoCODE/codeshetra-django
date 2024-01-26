@@ -22,7 +22,6 @@ def signup(request):
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
-        print(username, email, password)
 
         if User.objects.filter(username=username):
             messages.error(request, "Username alr Exists!!")
