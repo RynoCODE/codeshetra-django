@@ -45,12 +45,12 @@
 
         <div class="navbar-nav gap-5">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Features</a>
-          <a class="nav-link" href="#">Pricing</a>
-          <a class="nav-link" href="#">About Us</a>
-          <a class="nav-link" href="#">Sign In</a>
+          <a class="nav-link" href="#features">Features</a>
+          <a class="nav-link" href="#pricing">Pricing</a>
+          <a class="nav-link" href="#aboutus">About Us</a>
+          <a class="nav-link" href="signin" id="sign-in">Sign In</a>
           <div class="nav-btn pe-5">
-            <a name="" id="" class="btn btn-primary" href="#" role="button">Sign Up</a>
+            <a name="" id="sign-up" class="btn btn-primary" href="signup" role="button">Sign Up</a>
           </div>
         </div>
       </nav>
@@ -66,7 +66,7 @@
               Elevate your interview performance with unlimited mock interviews, personalized feedback, and real-time evaluation. Prepare confidently and land your dream job!
             </p>
             <a class="me-4" href="#">Learn More</a>
-            <a name="" id="" class="btn btn-primary" href="#" role="button">Get Started</a>
+            <a name="" id="" class="btn btn-primary" href="signup" role="button">Get Started</a>
           </div>
         </div>
         <div class="image-part me-5">
@@ -75,7 +75,7 @@
       </section>
 
       <!-- Key Features Section -->
-      <section class="features py-5">
+      <section id="features" class="features py-5">
         <h1 class="my-5 text-center">Key Features</h1>
         <div class="card-list d-flex gap-4 justify-content-center">
           <div class="cards card bg-primary text-white" id="car1">
@@ -100,7 +100,7 @@
       </section>
 
       <!-- About Us Section -->
-      <section class="aboutus">
+      <section class="aboutus" id="aboutus" >
         <h1 class="text-center mb-5">About Us</h1>
         <div class="about-part d-flex justify-content-center gap-5">
           <img class="ms-4 aboutimg" src="{% static "img/about us.jpg" %}" alt="About Us Image" />
@@ -114,7 +114,7 @@
         </div>
       </section>
 
-      <section class="pricing">
+      <section class="pricing" id="pricing">
           
 
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
@@ -375,5 +375,6 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+  
   </body>
 </html>
