@@ -17,6 +17,9 @@ urlpatterns = [
     path('price/starter/', payment.starter, name='starter'),
     path('price/pro/', payment.pro, name='pro'),
     path('price/master/', payment.master, name='master'),
+    path('success', payment.success, name='success'),
+
+
     #video call
     path('lobby/', video.lobby, name='lobby'),
     path('room/', video.room),

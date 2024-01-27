@@ -3,3 +3,4 @@ app/__pycache__/
 codeshetra/__pycache__/
 codeshetra/info.py
 *.pyc
+db.sqlite3
