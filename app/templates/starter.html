@@ -56,8 +56,8 @@
           data-name="Codeshetra"
           data-description="Buying of Codeshetra starter plan"
           data-image="{% static 'img/logo.png' %}"
-          data-prefill.name="PS"
-          data-prefill.email="abasu9420@gmail.com"
+          data-prefill.name="{{request.user.username}}"
+          data-prefill.email="{{request.user.email}}"
           data-theme.color="#F37254"
       ></script>
       <input type="hidden" custom="Hidden Element" name="hidden"/>
