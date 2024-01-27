@@ -11,7 +11,6 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes,force_str
 from . tokens import generate_token
 from django.core.mail import EmailMessage
-import razorpay
 from django.contrib.auth.decorators import login_required
 from . testing import *
 
@@ -125,14 +124,14 @@ def activate(request, uidb64, token):
         myuser.is_active = True
         myuser.save()
         login(request, myuser)
-        return redirect('home')
+        return redirect('dashboard')
     else:
         return render(request, 'activation_failed.html')
 @login_required
 def signout(request):
     logout(request)
     messages.success(request, "Successfully logged out")
-    return redirect('home')
+    return redirect('signin')
 
 @login_required
 def dashboard(request):

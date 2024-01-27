@@ -11,9 +11,12 @@ urlpatterns = [
     path('signout/', views.signout, name='signout'),
     path('activate/<uidb64>/<token>', views.activate, name='activate'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    
+    # pricing
     path('price/', payment.price, name='price'),
-
-
+    path('price/starter/', payment.starter, name='starter'),
+    path('price/pro/', payment.pro, name='pro'),
+    path('price/master/', payment.master, name='master'),
     #video call
     path('lobby/', video.lobby, name='lobby'),
     path('room/', video.room),
