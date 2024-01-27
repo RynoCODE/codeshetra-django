@@ -128,14 +128,16 @@ def activate(request, uidb64, token):
         return redirect('home')
     else:
         return render(request, 'activation_failed.html')
-
+@login_required
 def signout(request):
     logout(request)
     messages.success(request, "Successfully logged out")
     return redirect('home')
 
+@login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+@login_required
 def price(request):
     return render(request, 'pricing.html')

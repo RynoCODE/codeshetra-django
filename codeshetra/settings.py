@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from . info import *
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# Email settings
 EMAIL_USE_TLS = EMAIL_USE_TLS
 EMAIL_HOST = EMAIL_HOST
 EMAIL_HOST_USER = EMAIL_HOST_USER
@@ -24,9 +24,9 @@ SECRET_KEY = 'django-insecure--(i)@_pi&1=vkm8xi=g^22m!5dk4i_$o&ie&_)iep--#xn3gy)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-site_id = 1
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,12 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    # 'django.contrib.sites',
+    'django.contrib.sites',
     # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.google'
+    # 'allauth.socialaccount.providers.google',
 ]
+
+# SOCIALACCOUNT_PROVIDERS = {
+#     "google": {
+#         "SCOPE":[
+#             "profile",
+#             "email"
+#         ],
+#         "AUTH_PARAMS":{"access_type":"online"}
+#     }
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'codeshetra.urls'
@@ -126,9 +137,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+LOGIN_URL = '/signin'
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static'),
 ]
+
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# )
+
+# LOGIN_REDIRECT_URL = '/dashboard'
+# LOGOUT_REDIRECT_URL = '/'

@@ -6,13 +6,14 @@ from agora_token_builder import RtcTokenBuilder
 from .models import RoomMember
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 
 
-
+@login_required
 def lobby(request):
     return render(request, 'lobby.html')
-
+@login_required
 def room(request):
     return render(request, 'room.html')
 
