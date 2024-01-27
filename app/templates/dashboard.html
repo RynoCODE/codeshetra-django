@@ -24,11 +24,15 @@
     <header>
       <!-- place navbar here -->
       <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
+        <div class="d-flex justify-content-around align-items-center">
           <a class="navbar-brand" href="#"
-            ><img src="{% static "img/logo.png" %}" width="150" alt=""
-          /></a>
+            ><img class="ms-5" src="{% static "img/logo.png" %}" width="150"
+            alt="" /></a
+          >
         </div>
+        <a href="/signout"
+          ><button class="btn btn-success me-5">Sign Out</button></a
+        >
       </nav>
     </header>
     <main>
