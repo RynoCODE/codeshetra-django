@@ -10,10 +10,10 @@ from django.contrib.auth.decorators import login_required
 
 
 
-@login_required
+# @login_required
 def lobby(request):
     return render(request, 'lobby.html')
-@login_required
+# @login_required
 def room(request):
     return render(request, 'room.html')
 

@@ -7,11 +7,11 @@ client = razorpay.Client(auth=(settings.AUTH, settings.KEY))
 
 
 
-@login_required
+# @login_required
 def price(request):
     return render(request, 'pricing.html')
 
-@login_required
+# @login_required
 def starter(request):
     if request.method == "POST":
         client.order.create({
@@ -26,7 +26,7 @@ def starter(request):
         })
     return render(request, 'starter.html')
 
-@login_required
+# @login_required
 def pro(request):
     if request.method == "POST":
         client.order.create({
@@ -41,7 +41,7 @@ def pro(request):
             })
     return render(request, 'pro.html')
 
-@login_required
+# @login_required
 def master(request):
     if request.method == "POST":
         client.order.create({
