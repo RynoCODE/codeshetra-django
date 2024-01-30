@@ -11,6 +11,8 @@ EMAIL_PORT = EMAIL_PORT
 AUTH = AUTH
 KEY = KEY
 
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

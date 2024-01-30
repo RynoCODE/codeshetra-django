@@ -137,6 +137,6 @@ def signout(request):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
-@login_required
+# @login_required
 def price(request):
     return render(request, 'pricing.html')
