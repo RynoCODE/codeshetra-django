@@ -13,7 +13,7 @@ from . tokens import generate_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from . testing import *
-
+from . models import UserProfile
 
 
 
@@ -102,13 +102,17 @@ def sigin(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('dashboard')
+            user = request.user
+            try:
+                profile = UserProfile.objects.get(user=user)
+                print(profile.is_student, profile.is_teacher)
+            except UserProfile.DoesNotExist:
+                return redirect('dashboard')
         else:
             messages.error(request, "Invalid Credentials, Please try again")
             return redirect('signin')
 
 
-        return redirect('home') 
 
 
     return render(request, 'signIn.html')
@@ -135,8 +139,7 @@ def signout(request):
 
 @login_required
 def dashboard(request):
+
+
     return render(request, 'dashboard.html')
 
-# @login_required
-def price(request):
-    return render(request, 'pricing.html')

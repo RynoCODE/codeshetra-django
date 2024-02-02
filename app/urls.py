@@ -18,6 +18,7 @@ urlpatterns = [
     path('price/pro/', payment.pro, name='pro'),
     path('price/master/', payment.master, name='master'),
     path('success', payment.success, name='success'),
+    path('payment/callback', payment.order_callback1, name='callback'),
 
 
     #video call

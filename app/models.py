@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.forms import CharField
 
 # Create your models here.
 
@@ -10,3 +12,25 @@ class RoomMember(models.Model):
 
     def __str__(self):
         return self.name
+    
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    is_student = models.BooleanField(default=False)
+    is_teacher = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username
+    
+class credit(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    credit = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.user.username
+    
+
+# class Order(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     amount = models.IntegerField(_("Amount"), default=0)
+#     status = models.CharField(_("Status"), max_length=50, default="Pending")
+#     order_id = models.CharField(_("Order ID"), max_length=50, default="Pending")
