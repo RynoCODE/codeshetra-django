@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,17 +34,14 @@
               height="24"
             />
           </a>
-          <input type="button" value="credits - 2" />
+          <input type="button" value="credits - {{}}" />
         </div>
-        <div class="buttons d-flex gap-2">
-          <button class="btn btn-outline-success">Add Credits</button>
-          <a class="me-1" href="#"
-            ><button class="btn btn-primary me-">Join Room</button></a
-          >
+        <form action="">
+          <input class="btn" type="submit" value="Add Credit" />
           <a href="/signout"
             ><button class="btn btn-success me-5">Sign Out</button></a
           >
-        </div>
+        </form>
       </nav>
     </header>
     <main
@@ -56,7 +54,9 @@
       <!-- search bar -->
       <input type="text" placeholder="Topic..." id="Topic" />
       <br />
-      <button class="btn btn-warning mt-2">Connect</button>
+      <form action="">
+        <input class="btn btn-outline-primary" type="submit" name="" id="" value="Connect" />
+      </form>
     </main>
     <footer>
       <!-- place footer here -->

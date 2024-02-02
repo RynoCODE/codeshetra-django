@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 from . import video
-from . import payment
+from . import payment, dashboard
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -11,6 +11,7 @@ urlpatterns = [
     path('signout/', views.signout, name='signout'),
     path('activate/<uidb64>/<token>', views.activate, name='activate'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('student-dashboard/', dashboard.student_dashboard, name='student-dashboard'),
     
     # pricing
     path('price/', payment.price, name='price'),
@@ -19,6 +20,8 @@ urlpatterns = [
     path('price/master/', payment.master, name='master'),
     path('success', payment.success, name='success'),
     path('payment/callback', payment.order_callback1, name='callback'),
+    path('payment/callback1', payment.order_callback2, name='callback'),
+    path('payment/callback2', payment.order_callback3, name='callback'),
 
 
     #video call

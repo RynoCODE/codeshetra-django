@@ -25,7 +25,7 @@ def starter(request):
                         "payment_capture": "1"
                       })
         print (new_order_response)
-        return redirect("callback")
+        # return redirect("callback")
 
 
 
@@ -67,14 +67,18 @@ def success(request):
 
 
 def order_callback1(request):
+    print(request.POST)
     if request.method == "POST":
-        razorpay_order_id = request.POST.get('razorpay_order_id', '')
-        razorpay_payment_id = request.POST.get('razorpay_payment_id', '')
-        razorpay_signature = request.POST.get('razorpay_signature', '')
+        # razorpay_order_id = request.POST.get('razorpay_order_id')
+        razorpay_payment_id = request.POST.get('razorpay_payment_id')
+        # razorpay_signature = request.POST.get('razorpay_signature')
 
-        if razorpay_order_id and razorpay_payment_id and razorpay_signature:
-            payment_verification = client.utility.verify_payment_signature(request.POST)
-            if payment_verification:
+        # if razorpay_order_id and razorpay_payment_id and razorpay_signature:
+        if razorpay_payment_id:
+            # payment_verification = client.utility.verify_payment_signature(razorpay_payment_id, razorpay_order_id, razorpay_signature)
+            # if payment_verification:
+                # client.utility.verify_payment_signature(request.POST)
+            # if payment_verification:
                 user = request.user
                 try:
                     profile = credit.objects.get(user=request.user)
@@ -94,8 +98,84 @@ def order_callback1(request):
                 except UserProfile.DoesNotExist:
                     UserProfile.objects.create(user=request.user, is_student=True, is_teacher=False)
                     print("User profile created")
-            else:
-                return redirect("price")
+            # else:
+            #     return redirect("price")
 
-    return JsonResponse({'status': 'ok'}, safe=False)
+    return redirect("success")
+
+
+def order_callback2(request):
+    print(request.POST)
+    if request.method == "POST":
+        # razorpay_order_id = request.POST.get('razorpay_order_id')
+        razorpay_payment_id = request.POST.get('razorpay_payment_id')
+        # razorpay_signature = request.POST.get('razorpay_signature')
+
+        # if razorpay_order_id and razorpay_payment_id and razorpay_signature:
+        if razorpay_payment_id:
+            # payment_verification = client.utility.verify_payment_signature(razorpay_payment_id, razorpay_order_id, razorpay_signature)
+            # if payment_verification:
+                # client.utility.verify_payment_signature(request.POST)
+            # if payment_verification:
+                user = request.user
+                try:
+                    profile = credit.objects.get(user=request.user)
+                    profile.credit += 5
+                    profile.save()
+                    print("Credit added")
+                except credit.DoesNotExist:
+                    profile = credit.objects.create(user=request.user, credit=1)
+                    print("Credit created")
+
+                try:
+                    user_profile = UserProfile.objects.get(user=request.user)
+                    user_profile.is_student = True
+                    user_profile.is_teacher = False
+                    user_profile.save()
+                    print("User profile updated")
+                except UserProfile.DoesNotExist:
+                    UserProfile.objects.create(user=request.user, is_student=True, is_teacher=False)
+                    print("User profile created")
+            # else:
+            #     return redirect("price")
+
+    return redirect("success")
+
+
+def order_callback3(request):
+    print(request.POST)
+    if request.method == "POST":
+        # razorpay_order_id = request.POST.get('razorpay_order_id')
+        razorpay_payment_id = request.POST.get('razorpay_payment_id')
+        # razorpay_signature = request.POST.get('razorpay_signature')
+
+        # if razorpay_order_id and razorpay_payment_id and razorpay_signature:
+        if razorpay_payment_id:
+            # payment_verification = client.utility.verify_payment_signature(razorpay_payment_id, razorpay_order_id, razorpay_signature)
+            # if payment_verification:
+                # client.utility.verify_payment_signature(request.POST)
+            # if payment_verification:
+                user = request.user
+                try:
+                    profile = credit.objects.get(user=request.user)
+                    profile.credit += 10
+                    profile.save()
+                    print("Credit added")
+                except credit.DoesNotExist:
+                    profile = credit.objects.create(user=request.user, credit=1)
+                    print("Credit created")
+
+                try:
+                    user_profile = UserProfile.objects.get(user=request.user)
+                    user_profile.is_student = True
+                    user_profile.is_teacher = False
+                    user_profile.save()
+                    print("User profile updated")
+                except UserProfile.DoesNotExist:
+                    UserProfile.objects.create(user=request.user, is_student=True, is_teacher=False)
+                    print("User profile created")
+            # else:
+            #     return redirect("price")
+
+    return redirect("success")
                 
