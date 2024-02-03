@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>]student Dashboard</title>
+    <title>student Dashboard</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -17,6 +17,12 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <style>
+      .logo {
+        height: 40px;
+        width: auto;
+      }
+    </style>
   </head>
 
   <body>
@@ -27,20 +33,23 @@
       >
         <div>
           <a class="navbar-brand" href="#">
-            <img
-              src="/docs/5.0/assets/brand/bootstrap-logo.svg"
-              alt=""
-              width="30"
-              height="24"
-            />
+            <img class="ms-2 logo" src="{% static "img/teacher-icon.png" %}"
+            alt="Logo" />
           </a>
-          <input type="button" value="credits - {{cred}}" />
+          <input
+            class="border-0 bg-light"
+            type="button"
+            value="credits : {{credits}}"
+          />
         </div>
         <div>
-          <a href="/price"><button type="submit" class="btn" >Add Credit</button>
-          </a>
+          <a href="/price"
+            ><button class="btn btn-outline-primary border-0">
+              Add Credits
+            </button></a
+          >
           <a href="/signout"
-            ><button class="btn btn-success me-5">Sign Out</button></a
+            ><button class="btn btn-success me-5 border-0">Sign Out</button></a
           >
         </div>
       </nav>
@@ -56,7 +65,13 @@
       <input type="text" placeholder="Topic..." id="Topic" />
       <br />
       <form action="">
-        <input class="btn btn-outline-primary" type="submit" name="" id="" value="Connect" />
+        <input
+          class="btn btn-outline-primary"
+          type="submit"
+          name=""
+          id=""
+          value="Connect"
+        />
       </form>
     </main>
     <footer>
