@@ -17,9 +17,12 @@
     margin-top: 1rem;
 
 }
+    .navbar{
+      width: 100vw;
+    }
     .logo{
-      height: 50px;
-      width: auto;
+      height: 40px;
+      min-width: 100%;
     }
     </style>
 
@@ -39,10 +42,10 @@
   <body>
     <header>
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-items-center">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-items-center ">
         <a class="navbar-brand ps-5" href="#">
-          <img  class="logo" src="{% static "img/logo.png" %}" alt="Logo" />
-        </a>
+          <img class="logo" src="{% static "img/logo.png" %}" alt="Logo" />
+      </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
