@@ -43,20 +43,21 @@
           box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16),
             -10px -10px 10px -1px rgba(255, 255, 255, 0);
         }
-
     </style>
   </head>
 
   <body>
     <header>
+      
       <!-- place navbar here -->
       <nav
       class="navbar navbar-light bg-light d-flex justify-content-between align-items-center"
     >
-      <div>
+      <div class="d-flex gap-1">
         <a class="navbar-brand" href="#">
           <img class="ms-2 logo " height= "24" src="{% static "img/teacher-icon.png" %}" alt="Logo" />
         </a>
+        <h5 class="text-success pt-2 mt-1">User</h5>
       </div>
       <div class="d-flex gap-1">
         <!-- <a href="/price"
@@ -81,6 +82,10 @@
         >
       </div>
     </nav>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     </header>
     <main
       style="height: 80vh"
