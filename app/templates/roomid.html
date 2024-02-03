@@ -7,9 +7,10 @@
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <form action="" method="post">
+            {% csrf_token %}
             <label for="idInput">Enter Room Id</label>
-            <input type="text" id="idInput" placeholder="Enter Room ID">
+            <input type="text" name="roomid" id="idInput" placeholder="Enter Room ID">
             <button type="submit">Submit</button>
         </form>
     </div>

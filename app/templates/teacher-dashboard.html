@@ -43,7 +43,7 @@
 
   <body>
     <header>
-     
+      
       <!-- place navbar here -->
       <nav
         class="navbar navbar-light bg-light d-flex justify-content-between align-items-center"
@@ -78,12 +78,7 @@
           >
         </div>
 
-        {%for msg in messages%}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Hey!</strong> {{msg}}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %}
+        
 
       </nav>
       {% for msg in messages %}
@@ -98,23 +93,25 @@
         <h2>All Interviews</h2>
         <ul>
           {% for interview in interviews %}
-            <li>
-              <strong>Topic:</strong> {{ interview.topic }} <br>
-              <strong>Date:</strong> {{ interview.date }} <br>
-              <strong>Time:</strong> {{ interview.time }} <br>
-              <strong>Duration:</strong> {{ interview.duration }} minutes <br>
-              {% if  not interview.assigned_user %}
-                <form action="/assign/{{interview.id}}">
-                  {% csrf_token %}
-                  <button class="assign-button" name="assign">Assign to Me</button>
-                </form>
-              {% else %}
-
-                Assigned to: {{ interview.assigned_user.username }}
-              {% endif %}
-            </li>
+          {% if interview.done == False %}
+          <li>
+            <strong>Topic:</strong> {{ interview.topic }} <br>
+            <strong>Date:</strong> {{ interview.date }} <br>
+            <strong>Time:</strong> {{ interview.time }} <br>
+            <strong>Duration:</strong> {{ interview.duration }} minutes <br>
+            {% if  not interview.assigned_user %}
+            <form action="/assign/{{interview.id}}">
+              {% csrf_token %}
+              <button class="assign-button" name="assign">Assign to Me</button>
+            </form>
+            {% else %}
+            
+            Assigned to: {{ interview.assigned_user.username }}
+            {% endif %}
+            {% endif %}
+          </li>
           {% empty %}
-            <li>No interviews available.</li>
+          <li>No interviews available.</li>
           {% endfor %}
         </ul>
       </div>

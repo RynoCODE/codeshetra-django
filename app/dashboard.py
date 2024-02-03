@@ -5,14 +5,13 @@ from codeshetra import settings
 from django.contrib.auth.models import User
 from .models import credit, interview
 from django.contrib import messages
-from hugchat import hugchat
-from hugchat.login import Login
-
 
 @login_required
 def student_dashboard(request):
     cred = credit.objects.get(user=request.user).credit
     credd = credit.objects.get(user=request.user)
+    interviews = interview.objects.filter(user= request.user)
+    
     if request.method == "POST":
         if "req" in request.POST:
             topic = request.POST.get('topic')
@@ -35,50 +34,48 @@ def student_dashboard(request):
             else:
                 messages.error(request, "Please fill in all the fields")
                 return redirect('student-dashboard')
-
-    if request.method == 'GET':
-        # Assuming the user input is in the 'query' field of the request GET data
-        query = request.GET.get("query")
-        print("Query:", query)
-
-        try:
-            sign = Login("arka13", "Arkaprabha13")
-            cookies = sign.login()
-            cookie_path_dir = "/cookies"
-            sign.saveCookiesToDir(cookie_path_dir)
-            chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
-            id = chatbot.new_conversation()
-            chatbot.change_conversation(id)
-
-            print("Before chatbot.chat call")
-            bot_response = chatbot.chat(query)
-            print("After chatbot.chat call")
-            print("Aapi is Running! Bot -> ", bot_response)
-
-            # Pass the response to the template context
-            context = {'ANS': str(bot_response), 'anurag': 'anurag'}
+     
             
-            # Render the same HTML template with the updated context
-            # return render(request, 'chatbot_project/index.html', context)
-            # Instead of using redirect, use JsonResponse to send JSON response
-            return JsonResponse({"Bot": str(bot_response)})
+    return render(request, 'student_dashboard.html', {'cred':cred, 'interviews':interviews})
 
-        except Exception as e:
-            print("Error:", e)
-            messages.error(request, str(e))
-            # return JsonResponse({"error": str(e)})
-            return redirect('student-dashboard')
-    else:
-        messages.error(request, "Invalid request method")
-        # return JsonResponse({"error": "Invalid request method"})
+
+def student_action2(request, interview_id):
+    interviews = interview.objects.get(pk=interview_id)
+    if request.user == interviews.user:
+        interviews.delete()
+        cred = credit.objects.get(user=request.user)
+        cred.credit += 1
+        cred.save()
+        messages.success(request, "Interview cancelled")
         return redirect('student-dashboard')
+    
+def student_action(request, interview_id):
+        if request.user.is_authenticated:
+            interviews = interview.objects.get(pk=interview_id)
+            print("Inter Received")
+            if request.user == interviews.user:
+                interviews.done = True
+                interviews.save()
+                print("Interview Marked as done")
+                teacher = interviews.assigned_user
+                # teacher_cred = get_object_or_404(credit, user=teacher)
+                teacher_cred = credit.objects.get(user=teacher)
+                teacher_cred.credit += 1
+                teacher_cred.save()
+                print("Teacher credited")
+                messages.success(request, "Interview marked as done")
+                return redirect('student-dashboard')
+            else:
+                messages.error(request, "You are not authorized to mark this interview as done")
+                return redirect('student-dashboard')
+        else:
+            messages.error(request, "You need to be logged in to mark an interview as done")
+        return redirect('student-dashboard')
+    
 
 
 
 
-
-
-    return render(request, 'student_dashboard.html', {'cred':cred})
 
 @login_required
 def teacher_dashboard(request):
@@ -89,7 +86,8 @@ def teacher_dashboard(request):
         profile.save()
         print("Credit created")
     interviews = interview.objects.all()
-    return render(request, "teacher-dashboard.html",{'interviews': interviews, 'cred':credd})
+    
+    return render(request, "teacher-dashboard.html",{'interviews': interviews, 'cred':credd,})
 
 
 
@@ -97,14 +95,28 @@ def assign_interview(request, interview_id):
         interviews = interview.objects.get(pk=interview_id)
         if request.user.is_authenticated:
             # interview = get_object_or_404(interview, pk=interview_id)
+            if request.method == "POST":
+                roomid = request.POST.get('roomid')
+                if roomid:
+                    interviews.room_id = roomid
+                    interviews.save()
+                    messages.success(request, "Room ID assigned successfully")
+                    return redirect('teacher-dashboard')
+                else:
+                    messages.error(request, "Please fill in the room id")
+                    return redirect('teacher-dashboard')
+
             if not  interviews.assigned_user:
                 interviews.assigned_user = request.user
                 interviews.save()
                 messages.success(request, "Interview assigned successfully")
-                return redirect('teacher-dashboard')
+                
             else:
                 messages.error(request, "Interview already assigned")
-                return redirect('teacher-dashboard')
+                # return redirect('teacher-dashboard')~
                 # return JsonResponse({'error': 'Interview already assigned'}, status=400)
+            
+            
+            return render(request, 'roomid.html')
         else:
             return JsonResponse({'error': 'User is not authenticated'}, status=401)

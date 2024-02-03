@@ -143,9 +143,35 @@
 
       <div class="mybox" id="aibot">
 
+
       </div>
 
       <div class="mybox" id="interviewlist">
+        <form action="" method="post">
+          {% csrf_token %}
+          <h2>All Interviews</h2>
+        <ul>
+          {% for interview in interviews %}
+          {% if interview.done == False %}
+          <li>
+            <strong>Topic:</strong> {{ interview.topic }} <br>
+            <strong>Date:</strong> {{ interview.date }} <br>
+            <strong>Time:</strong> {{ interview.time }} <br>
+            <strong>Duration:</strong> {{ interview.duration }} minutes <br>
+            {% if  not interview.assigned_user %}
+            <strong>Waiting for an interviewer.</strong>
+            <form action="/student-action2/{{interview.id}}">
+              <input type="submit" name="cancel" value="Cancel Interview">
+            </form>
+            {% else %}
+            Assigned to: {{ interview.assigned_user.username }}
+            <form action="/student-action/{{interview.id}}">
+              <input type="submit" name="Done" value="Interview Done">
+            </form>
+            {% endif %}
+            {% endif %}
+              {% endfor %}
+        </form>
 
       </div>
     </main>
