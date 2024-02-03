@@ -103,7 +103,7 @@ def sigin(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            if UserProfile.objects.filter(user=request.user).exits():    
+            if UserProfile.objects.filter(user=request.user).exists():    
                 return redirect('dashboard')
             else:
                 user_profile = UserProfile.objects.get(user=request.user)

@@ -1,65 +1,92 @@
-{% extends 'main.html' %}
-{% load static %}
-{% block content %}
+{% extends 'main.html' %} {% load static %} {% block content %}
+<head>
+  <style>
+    main {
+      h1 {
+        text-align: center;
+        color: royalblue;
+        font-weight: 900;
+      }
+      .para {
+        color: rgb(168, 9, 9) !important;
+      }
+      .inputplace {
+        border-radius: 0.5rem;
+        border-radius: 3rem;
+      }
+      .form-container {
+        border: none;
+        border-radius: 3rem;
+      }
+      .container-wrap{
+        height: 100vh;
+        width: ;
+      }
+    }
+  </style>
+</head>
+<main class="container-wrap">
+  <section id="form-container">
+    <img id="logo" src="{% static 'img/chat-icon.png' %}" />
 
-<main>
+    <div id="welcome-message">
+      <h1>Welcome to Interview</h1>
+      <p class="para">A Mock Interview Platform for Developers.</p>
+    </div>
 
-    <section id="form-container">
-
-        <img id="logo" src="{% static 'img/chat-icon.png' %}"/>
-
-        <div id="welcome-message">
-            <h1>Welcome to MyChat</h1>
-            <p>A group video calling platform made just for you!</p>
+    <form id="form">
+      <div class="field-wrapper">
+        <div class="form-field">
+          <label>Room id:</label>
+          <input
+            class="inputplace"
+            name="room"
+            placeholder="Enter a room name..."
+            style="text-transform: uppercase"
+          />
         </div>
 
-        <form id="form">
-            <div class="field-wrapper">
+        <div class="form-field">
+          <label>Name:</label>
+          <input
+            class="inputplace"
+            name="name"
+            placeholder="Enter your name..."
+            style="text-transform: uppercase"
+          />
+        </div>
 
-                <div class="form-field">
-                    <label>Room:</label>
-                    <input name="room" placeholder="Enter a room name..."  style="text-transform:uppercase"/>
-                </div>
-
-                <div class="form-field">
-                    <label>Name:</label>
-                    <input name="name" placeholder="Enter your name..."  style="text-transform:uppercase"/>
-                </div>
-
-                <div class="form-field">
-                    <input type="submit" value="Join Stream" />
-                </div>
-            </div>
-        </form>
-    </section>
+        <div class="form-field">
+          <input type="submit" value="Join Stream" />
+        </div>
+      </div>
+    </form>
+  </section>
 </main>
 
 <script>
-    let form = document.getElementById('form')
+  let form = document.getElementById("form");
 
-    let handleSubmit = async (e) => {
-        e.preventDefault()
-        let room = e.target.room.value.toUpperCase()
-        let name = e.target.name.value
+  let handleSubmit = async (e) => {
+    e.preventDefault();
+    let room = e.target.room.value.toUpperCase();
+    let name = e.target.name.value;
 
-        let response = await fetch(`/get_token/?channel=${room}`)
-        let data = await response.json()
+    let response = await fetch(`/get_token/?channel=${room}`);
+    let data = await response.json();
 
-        let UID = data.uid
-        let token = data.token
+    let UID = data.uid;
+    let token = data.token;
 
-        sessionStorage.setItem('UID', UID)
-        sessionStorage.setItem('token', token)
-        sessionStorage.setItem('room', room)
-        sessionStorage.setItem('name', name)
+    sessionStorage.setItem("UID", UID);
+    sessionStorage.setItem("token", token);
+    sessionStorage.setItem("room", room);
+    sessionStorage.setItem("name", name);
 
-        window.open('/room/', '_self')
-    }
+    window.open("/room/", "_self");
+  };
 
-
-
-    form.addEventListener('submit', handleSubmit)
+  form.addEventListener("submit", handleSubmit);
 </script>
 
 {% endblock content %}
-
