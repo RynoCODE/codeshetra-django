@@ -52,7 +52,7 @@
           <a class="navbar-brand" href="#">
             <img class="ms-2 logo " height= "24" src="{% static "img/teacher-icon.png" %}" alt="Logo" />
           </a>
-          <h5 class="text-success pt-2 mt-1">User</h5>
+          <h5 class="text-success pt-2 mt-1">{{request.user.username}}</h5>
 
         </div>
         <div class="d-flex gap-1">
@@ -77,11 +77,21 @@
             ><button class="btn btn-success me-2 border-0">Sign Out</button></a
           >
         </div>
+
+        {%for msg in messages%}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Hey!</strong> {{msg}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+
       </nav>
+      {% for msg in messages %}
       <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        {{msg}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
+      {% endfor %}
     </header>
     <main>
       <div>

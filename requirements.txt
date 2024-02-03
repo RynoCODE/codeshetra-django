@@ -13,3 +13,4 @@ tzdata==2023.4
 urllib3==2.1.0
 django-allauth==0.60.1
 razorpay==1.4.1
+hugchat==0.3.10
