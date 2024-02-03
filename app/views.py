@@ -108,7 +108,9 @@ def sigin(request):
             else:
                 user_profile = UserProfile.objects.get(user=request.user)
                 if user_profile.is_student == True:
-                    return redirect("student-dashboard")
+                    cred = credit.objects.get(user=request.user).credit
+                    
+                    return redirect("student-dashboard", {'cred':cred})
                 else:
                     return redirect('teacher-dashboard')
         else:
