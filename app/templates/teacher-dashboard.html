@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,6 +25,20 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      .mybtn {
+        /* font-size: 32px;
+        font-weight: 500; */
+        /* padding: 20px; */
+        background: #ebeef1;
+        cursor: pointer;
+        border: none;
+        border-radius: 50px;
+        color: #00a037;
+        box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16),
+          -10px -10px 10px -1px rgba(255, 255, 255, 0);
+      }
+    </style>
   </head>
 
   <body>
@@ -34,26 +49,38 @@
       >
         <div>
           <a class="navbar-brand" href="#">
-            <img class="ms-2 logo" src="{% static "img/teacher-icon.png" %}"
-            alt="Logo" />
+            <img class="ms-2 logo " height= "24" src="{% static "img/teacher-icon.png" %}" alt="Logo" />
           </a>
         </div>
-        <div>
+        <div class="d-flex gap-1">
           <!-- <a href="/price"
           ><button class="btn btn-outline-primary border-0">
             Add Credits
           </button></a
         > -->
-          <i class="fa-solid fa-money-check-dollar"></i>
-          <input class="border-0 bg-light" type="button" value="{{cred}}" />
+          <div
+            class="d-flex gap-1 justify-content-center align-items-center me-4 mybtn"
+          >
+            <i class="fa-solid fa-money-check-dollar ps-1 pe-2"></i>
+            <input
+              class="border-0 bg-light pe-2"
+              type="button"
+              value="{{cred}}"
+            />
+            <a href="/price"> <i class="fa-solid fa-plus pe-2"></i></a>
+          </div>
 
           <a href="/signout"
-            ><button class="btn btn-success me-5 border-0">Sign Out</button></a
+            ><button class="btn btn-success me-2 border-0">Sign Out</button></a
           >
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <div>
+
+      </div>
+    </main>
     <footer>
       <!-- place footer here -->
     </footer>
