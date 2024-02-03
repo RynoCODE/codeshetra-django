@@ -78,7 +78,7 @@ def signup(request):
         email_subject = "Confirmation for Email Registration @ Codeshetra"
         message2 = render_to_string('email_confirmation.html',{
             'name': myuser.username,
-            'domain': current_site.domain,
+            'domain': settings.ALLOWED_HOSTS[0],
             'uid':urlsafe_base64_encode(force_bytes(myuser.pk)),
             'token':generate_token.make_token(myuser),
         })
