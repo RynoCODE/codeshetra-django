@@ -12,6 +12,7 @@ urlpatterns = [
     path('activate/<uidb64>/<token>', views.activate, name='activate'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('student-dashboard/', dashboard.student_dashboard, name='student-dashboard'),
+    path('teacher-dashboard/', dashboard.teacher_dashboard, name='teacher-dashboard'),
     
     # pricing
     path('price/', payment.price, name='price'),

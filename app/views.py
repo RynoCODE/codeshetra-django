@@ -103,7 +103,14 @@ def sigin(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('dashboard')
+            if UserProfile.objects.filter(user=request.user).exits():    
+                return redirect('dashboard')
+            else:
+                user_profile = UserProfile.objects.get(user=request.user)
+                if user_profile.is_student == True:
+                    return redirect("student-dashboard")
+                else:
+                    return redirect('teacher-dashboard')
         else:
             messages.error(request, "Invalid Credentials, Please try again")
             return redirect('signin')

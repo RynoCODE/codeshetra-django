@@ -6,5 +6,6 @@ from django.contrib.auth.models import User
 from .models import credit
 
 def student_dashboard(request):
-    
     return render(request, 'student_dashboard.html')
+def teacher_dashboard(request):
+    return render(request, "teacher-dashboard.html")
