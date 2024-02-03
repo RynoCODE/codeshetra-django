@@ -28,7 +28,14 @@ class credit(models.Model):
     def __str__(self):
         return self.user.username
     
-
+class interview(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    topic = models.CharField(max_length=200)
+    date = models.DateField()
+    time = models.TimeField()
+    duration = models.IntegerField()
+    def __str__(self):
+        return self.user.username
 # class Order(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
 #     amount = models.IntegerField(_("Amount"), default=0)

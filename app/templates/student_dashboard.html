@@ -39,7 +39,7 @@
           <input
             class="border-0 bg-light"
             type="button"
-            value="credits : {{credits}}"
+            value="credits : {{cred}}"
           />
         </div>
         <div>
@@ -62,15 +62,16 @@
       <h1 class="text-danger mx-auto">Interviewer ?</h1>
 
       <!-- search bar -->
-      <input type="text" placeholder="Topic..." id="Topic" />
-      <br />
-      <form action="">
+      <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Topic..." id="Topic" />
+        <br />
         <input
           class="btn btn-outline-primary"
           type="submit"
-          name=""
+          name="req"
           id=""
-          value="Connect"
+          value="Send Request"
         />
       </form>
     </main>
