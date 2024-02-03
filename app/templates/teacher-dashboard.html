@@ -1,8 +1,7 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Teacher Dashboard</title>
+    <title>teacher-dashboard</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -17,6 +16,14 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <!-- Font Awesome icons (free version)-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
@@ -26,32 +33,27 @@
         class="navbar navbar-light bg-light d-flex justify-content-between align-items-center"
       >
         <div>
-          <a class="navbar-brand ps-5" href="#">
-            <img class="logo" src="{% static "img/teacher-icon.png" %}"
+          <a class="navbar-brand" href="#">
+            <img class="ms-2 logo" src="{% static "img/teacher-icon.png" %}"
             alt="Logo" />
           </a>
-          <a href="/price">
-            <button class="btn  btn-outline-primary border-0"">Credits:</button>
-          </a>
         </div>
+        <div>
+          <!-- <a href="/price"
+          ><button class="btn btn-outline-primary border-0">
+            Add Credits
+          </button></a
+        > -->
+          <i class="fa-solid fa-money-check-dollar"></i>
+          <input class="border-0 bg-light" type="button" value="{{cred}}" />
 
-        <div class="buttons d-flex gap-2">
-          <a class="me-1" href="#"
-            ><button class="btn btn-outline-primary border-0">
-              Join Room
-            </button></a
-          >
           <a href="/signout"
-            ><button class="btn btn-success me-2">Sign Out</button></a
+            ><button class="btn btn-success me-5 border-0">Sign Out</button></a
           >
-          <img class="border-circular" height="24" src=""{% static
-          "img/teacher-icon.png" %}" alt="" />
         </div>
       </nav>
     </header>
-    <main>
-      <div class="contianer listPart"></div>
-    </main>
+    <main></main>
     <footer>
       <!-- place footer here -->
     </footer>
