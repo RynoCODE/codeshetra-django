@@ -103,12 +103,14 @@ def sigin(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            if UserProfile.objects.filter(user=request.user).exits():    
+            if UserProfile.objects.filter(user=request.user).exists():    
                 return redirect('dashboard')
             else:
                 user_profile = UserProfile.objects.get(user=request.user)
                 if user_profile.is_student == True:
-                    return redirect("student-dashboard")
+                    cred = credit.objects.get(user=request.user).credit
+                    
+                    return redirect("student-dashboard", {'cred':cred})
                 else:
                     return redirect('teacher-dashboard')
         else:
