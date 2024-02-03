@@ -44,19 +44,16 @@
             <img class="ms-2 logo" src="{% static "img/teacher-icon.png" %}"
             alt="Logo" />
           </a>
-          <input
-            class="border-0 bg-light"
-            type="button"
-            value="credits : {{cred}}"
-          />
         </div>
         <div>
-          <a href="/price"
+          <!-- <a href="/price"
             ><button class="btn btn-outline-primary border-0">
               Add Credits
             </button></a
-          >
-          <i class="fa-solid fa-plus"></i>
+          > -->
+          <i class="fa-solid fa-money-check-dollar"></i>
+          <input class="border-0 bg-light" type="button" value="{{cred}}" />
+
           <a href="/signout"
             ><button class="btn btn-success me-5 border-0">Sign Out</button></a
           >
@@ -67,13 +64,13 @@
       style="height: 80vh"
       class="d-flex flex-column align-items-center justify-content-center"
     >
-      <h1 class="mx-auto">Want to connet With</h1>
+      <h1 class="mx-auto">Want to connect With</h1>
       <h1 class="text-danger mx-auto">Interviewer ?</h1>
 
       <!-- search bar -->
       <form action="" method="post">
         {% csrf_token %}
-        <div class="container formlist">
+        <div class="container">
           <input type="text" placeholder="Topic..." name="topic" id="topic" />
           <input
             type="date"
