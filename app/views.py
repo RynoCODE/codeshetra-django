@@ -14,6 +14,7 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from . testing import *
 from . models import UserProfile
+from .models import credit
 
 
 
@@ -66,7 +67,7 @@ def signup(request):
         myuser.is_active=False
         myuser.save()
 
-        messages.success(request, "Your account has been successfully created")
+        messages.success(request, "Your account has been successfully created. Check e-mail for activation!")
 
         # Email sending
         subject = 'Welcome to Codeshetra'
@@ -78,7 +79,7 @@ def signup(request):
         email_subject = "Confirmation for Email Registration @ Codeshetra"
         message2 = render_to_string('email_confirmation.html',{
             'name': myuser.username,
-            'domain': settings.ALLOWED_HOSTS[0],
+            'domain': current_site.domain,
             'uid':urlsafe_base64_encode(force_bytes(myuser.pk)),
             'token':generate_token.make_token(myuser),
         })
@@ -102,12 +103,7 @@ def sigin(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            user = request.user
-            try:
-                profile = UserProfile.objects.get(user=user)
-                print(profile.is_student, profile.is_teacher)
-            except UserProfile.DoesNotExist:
-                return redirect('dashboard')
+            return redirect('dashboard')
         else:
             messages.error(request, "Invalid Credentials, Please try again")
             return redirect('signin')
@@ -139,7 +135,12 @@ def signout(request):
 
 @login_required
 def dashboard(request):
-
-
+    if request.method == "POST":
+        print(request.POST)
+        if "join" in request.POST:
+            if credit.objects.filter(user=request.user).exists():
+                return redirect("student-dashboard")
+            else:
+                return redirect("price")
     return render(request, 'dashboard.html')
 

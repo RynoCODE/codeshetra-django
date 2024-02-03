@@ -42,10 +42,12 @@
         >
           <div class="left-side">
             <h1>Want To Give a Mock Interview ?</h1>
-            <form action="">
+            <form action="" method="post">
+              {% csrf_token %}
               <input
                 class="btn mt-5 btn-primary d-block mx-auto"
-                type="button"
+                type="submit"
+                name = "join"
                 value="Join Room"
               />
             </form>
