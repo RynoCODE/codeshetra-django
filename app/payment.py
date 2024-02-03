@@ -33,32 +33,26 @@ def starter(request):
 
 # @login_required
 def pro(request):
+    amount = 599
     if request.method == "POST":
-        client.order.create({
-            "amount": 59900,
-            "currency": "INR",
-            "receipt": "receipt#1",
-            "partial_payment": False,
-            "notes": {
-                "key1": "demo",
-                "key2": "demo2"
-            }
-            })
+        new_order_response = client.order.create({
+                        "amount": amount*100,
+                        "currency": "INR",
+                        "payment_capture": "1"
+                      })
+        print (new_order_response)
     return render(request, 'pro.html')
 
 # @login_required
 def master(request):
+    amount = 999
     if request.method == "POST":
-        client.order.create({
-            "amount": 99900,
-            "currency": "INR",
-            "receipt": "receipt#1",
-            "partial_payment": False,
-            "notes": {
-                "key1": "demo",
-                "key2": "demo2"
-            }
-            })
+        new_order_response = client.order.create({
+                        "amount": amount*100,
+                        "currency": "INR",
+                        "payment_capture": "1"
+                      })
+        print (new_order_response)
     return render(request, 'master.html')
 
 @csrf_exempt
@@ -124,7 +118,7 @@ def order_callback2(request):
                     profile.save()
                     print("Credit added")
                 except credit.DoesNotExist:
-                    profile = credit.objects.create(user=request.user, credit=1)
+                    profile = credit.objects.create(user=request.user, credit=5)
                     print("Credit created")
 
                 try:
@@ -162,7 +156,7 @@ def order_callback3(request):
                     profile.save()
                     print("Credit added")
                 except credit.DoesNotExist:
-                    profile = credit.objects.create(user=request.user, credit=1)
+                    profile = credit.objects.create(user=request.user, credit=10)
                     print("Credit created")
 
                 try:

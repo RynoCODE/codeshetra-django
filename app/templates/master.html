@@ -39,7 +39,8 @@
         value="₹999"
         class="btn btn-lg btn-outline-success rounded-pill fs-6"
       /> -->
-      <form action="/success" method="POST">
+      <form action="/payment/callback1" method="POST">
+        {% csrf_token %}
         <script
           src="https://checkout.razorpay.com/v1/checkout.js"
           data-key="rzp_test_a9VaTKap0Tp3Rb" // Enter the Test API Key ID generated from Dashboard → Settings → API Keys
