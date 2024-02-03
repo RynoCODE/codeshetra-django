@@ -78,7 +78,28 @@
     </header>
     <main>
       <div>
+        <h2>All Interviews</h2>
+        <ul>
+          {% for interview in interviews %}
+            <li>
+              <strong>Topic:</strong> {{ interview.topic }} <br>
+              <strong>Date:</strong> {{ interview.date }} <br>
+              <strong>Time:</strong> {{ interview.time }} <br>
+              <strong>Duration:</strong> {{ interview.duration }} minutes <br>
+              {% if  not interview.assigned_user %}
+                <form action="/assign/{{interview.id}}">
+                  {% csrf_token %}
+                  <button class="assign-button" name="assign">Assign to Me</button>
+                </form>
+              {% else %}
 
+                Assigned to: {{ interview.assigned_user.username }}
+              {% endif %}
+            </li>
+          {% empty %}
+            <li>No interviews available.</li>
+          {% endfor %}
+        </ul>
       </div>
     </main>
     <footer>
@@ -96,5 +117,6 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+    
   </body>
 </html>
