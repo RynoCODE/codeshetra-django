@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static "css/signIn.css" %}" />
     <title>Login Page</title>
   </head>
-  <body class="bg-success bg-gradient">
+  <body style="background: linear-gradient(45 deg, #004e92, #000428 )">
     {%for msg in messages%}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       {{msg}}
@@ -33,11 +33,10 @@
 
         <div
           class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-          style="background: url({% static "img/foreground.jpg" %})"
+          style="background: url({% static "img/foreground.jpg" %});
+          background-size: cover;"
         >
-          <div class="featured-image mb-3">
-            <img src="{% static "img/logo1.jpg" %}" class="img-fluid" style="width: 250px" />
-          </div>
+          
         </div>
 
         <!-------------------- ------ Right Box ---------------------------->
