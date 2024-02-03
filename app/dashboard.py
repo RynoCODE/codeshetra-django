@@ -10,10 +10,19 @@ def student_dashboard(request):
     cred = credit.objects.get(user=request.user).credit
     if request.method == "POST":
         if "req" in request.POST:
-            interview = interview.objects.create(user=request.user, topic=request.POST['topic'], date=request.POST['date'], time=request.POST['time'], duration=request.POST['duration'])
-            interview.save()
-            messages.success(request, "Interview Scheduled. You will be receiving an email shortly with details")
-            return redirect('student_dashboard')
+            topic = request.POST.get('topic')
+            if topic:
+                interviews = interview.objects.create(user=request.user,
+                                                    topic=request.POST.get('topic'),
+                                                        date=request.POST.get('date'),
+                                                        time=request.POST.get('time'),
+                                                        duration=request.POST.get('duration'))
+                interviews.save()
+                messages.success(request, "Interview Scheduled. You will be receiving an email shortly with details")
+                return redirect('student-dashboard')
+            else:
+                messages.error(request, "Please fill in all the fields")
+                return redirect('student-dashboard')
 
     return render(request, 'student_dashboard.html', {'cred':cred})
 def teacher_dashboard(request):

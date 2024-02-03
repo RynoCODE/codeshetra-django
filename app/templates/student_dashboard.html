@@ -65,11 +65,12 @@
       <form action="" method="post">
         {% csrf_token %}
         <div class="container">
-          <input type="text" placeholder="Topic..." id="Topic" />
-          <input type="date" placeholder="Interview date" id="date" />
-          <input type="time" placeholder="Interview Time" id="time" />
+          <input type="text" placeholder="Topic..." name="topic" id="topic" />
+          <input type="date" placeholder="Interview date" name="date" id="date" />
+          <input type="time" placeholder="Interview Time" name="time" id="time" />
           <input
             type="number"
+            name="duration"
             placeholder="Duration in min"
             id="duration"
             oninput="validateInput()"
