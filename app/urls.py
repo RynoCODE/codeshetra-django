@@ -14,6 +14,8 @@ urlpatterns = [
     path('student-dashboard/', dashboard.student_dashboard, name='student-dashboard'),
     path('teacher-dashboard/', dashboard.teacher_dashboard, name='teacher-dashboard'),
     
+    path('assign/<interview_id>/', dashboard.assign_interview, name='assign_interview'),
+
     # pricing
     path('price/', payment.price, name='price'),
     path('price/starter/', payment.starter, name='starter'),
