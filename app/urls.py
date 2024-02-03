@@ -36,5 +36,4 @@ urlpatterns = [
     path('delete_member/', video.deleteMember),
 
 
-
 ]
