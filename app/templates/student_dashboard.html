@@ -62,15 +62,27 @@
       <h1 class="text-danger mx-auto">Interviewer ?</h1>
 
       <!-- search bar -->
-      <input type="text" placeholder="Topic..." id="Topic" />
-      <br />
-      <form action="">
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="container">
+          <input type="text" placeholder="Topic..." id="Topic" />
+          <input type="date" placeholder="Interview date" id="date" />
+          <input type="time" placeholder="Interview Time" id="time" />
+          <input
+            type="number"
+            placeholder="Duration in min"
+            id="duration"
+            oninput="validateInput()"
+          />
+        </div>
+
+        <br />
         <input
-          class="btn btn-outline-primary"
+          class="btn btn-outline-primary d-block mx-auto"
           type="submit"
           name=""
           id=""
-          value="Connect"
+          value="Send Request"
         />
       </form>
     </main>
@@ -89,5 +101,17 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function validateInput() {
+        var inputElement = document.getElementById("duration");
+        var inputValue = inputElement.value;
+
+        // Check if the input is a negative number
+        if (parseFloat(inputValue) < 0) {
+          // If negative, set the input value to 0
+          inputElement.value = 0;
+        }
+      }
+    </script>
   </body>
 </html>
