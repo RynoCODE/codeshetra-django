@@ -67,18 +67,24 @@
 		.btn1 { 
 			margin-left: 43%; 
 			padding: 15px 15px; 
-			font-size: 15px; 
+			font-size: 12px; 
 			font-weight: bold; 
-			background-color: rgb(35, 144, 208); 
-			border-radius: 10px; 
+			background-color: royalblue; 
+			border-radius: 10px;
+			border: none; 
+			color: #fff;
 		} 
+		.btn1:hover{
+			background-color: rgb(54, 90, 198);
+			color: #fff;
+		}
 
 		/* You can add more styles as needed */ 
 	</style> 
 </head> 
 
 <body> 
-	<h1 style="text-align: center; color:green; font-size:40px; ">CodeShetra</h1> 
+	<h1 style="text-align: center; color:green; font-size:40px; ">ATS Optimised Resume Builder</h1> 
 
 	<form action="{% url 'resume' %}" method="post"> 
 		{% csrf_token %} 

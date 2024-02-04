@@ -7,8 +7,9 @@
         color: royalblue;
         font-weight: 900;
       }
+     
       .para {
-        color: rgb(168, 9, 9) !important;
+        color: rgb(8, 182, 115) !important;
       }
       .inputplace {
         border-radius: 0.5rem;
@@ -20,19 +21,37 @@
       }
       .container-wrap{
         height: 100vh;
-        width: ;
+        border-radius: 0.75rem;
       }
+
+      .button{
+        color: #fff;
+        background-color: royalblue;
+      }
+      .button:hover{
+        color: #fff;
+        background-color: rgb(55, 91, 199);
+      
+      }
+      span{
+        color: #000;
+        font-weight: 50;
+        font-size: small
+
+      };
     }
   </style>
 </head>
 <main class="container-wrap">
   <section id="form-container">
-    <img id="logo" src="{% static 'img/chat-icon.png' %}" />
+    <img id="logo" src="{% static 'img/videoicon.png' %}" />
 
     <div id="welcome-message">
       <h1>Welcome to Interview</h1>
       <p class="para">A Mock Interview Platform for Developers.</p>
+      
     </div>
+  
 
     <form id="form">
       <div class="field-wrapper">
@@ -57,9 +76,10 @@
         </div>
 
         <div class="form-field">
-          <input type="submit" value="Join Stream" />
+          <input class="button" type="submit" value="Join Call" />
         </div>
       </div>
+      <span> Note: you need a decent internet Connection</span>
     </form>
   </section>
 </main>
