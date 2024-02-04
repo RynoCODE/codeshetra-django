@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from . import views
 from . import video
 from . import payment, dashboard
@@ -7,6 +7,9 @@ from . import payment, dashboard
 urlpatterns = [
     path('', views.home, name='home'),
     path('signup/', views.signup, name='signup'),
+    # path('student-help/', views.signup, name='student-help'),
+    path('student-help/', include('cb.urls')),  # Include your app's urls
+
     path('signin/', views.sigin, name='signin'),
     path('signout/', views.signout, name='signout'),
     path('activate/<uidb64>/<token>', views.activate, name='activate'),
