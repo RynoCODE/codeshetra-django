@@ -158,15 +158,16 @@
             <strong>Date:</strong> {{ interview.date }} <br>
             <strong>Time:</strong> {{ interview.time }} <br>
             <strong>Duration:</strong> {{ interview.duration }} minutes <br>
+            <strong>Room number:</strong> {{ interview.room_id }} <br>
             {% if  not interview.assigned_user %}
             <strong>Waiting for an interviewer.</strong>
-            <form action="/student-action2/{{interview.id}}">
-              <input type="submit" name="cancel" value="Cancel Interview">
-            </form>
             {% else %}
             Assigned to: {{ interview.assigned_user.username }}
-            <form action="/student-action/{{interview.id}}">
+            <form action="" method="post">
+              {% csrf_token %}
+              <input name="interview_id" type="hidden" value="{{interview.id}}">
               <input type="submit" name="Done" value="Interview Done">
+              {% comment %} <input type="submit" name="Done" value="Interview Done"> {% endcomment %}
             </form>
             {% endif %}
             {% endif %}
