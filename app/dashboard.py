@@ -63,7 +63,7 @@ def student_dashboard(request):
             
     return render(request, 'student_dashboard.html', {'cred':cred, 'interviews':interviews})
 
-
+@login_required
 def student_action2(request, interview_id):
     interviews = interview.objects.get(pk=interview_id)
     if request.user == interviews.user:
@@ -73,7 +73,7 @@ def student_action2(request, interview_id):
         cred.save()
         messages.success(request, "Interview cancelled")
         return redirect('student-dashboard')
-    
+@login_required
 def student_action(request):
     if request.method == "POST":
         interview_id = request.POST.get('interview_id')
@@ -117,7 +117,7 @@ def teacher_dashboard(request):
     return render(request, "teacher-dashboard.html",{'interviews': interviews, 'cred':credd,})
 
 from django.core.mail import EmailMessage
-
+@login_required
 def assign_interview(request, interview_id):
         interviews = interview.objects.get(pk=interview_id)
         if request.user.is_authenticated:

@@ -11,7 +11,7 @@ client = razorpay.Client(auth=(settings.AUTH, settings.KEY))
 
 
 
-# @login_required
+@login_required
 def price(request):
     return render(request, 'pricing.html')
 
@@ -31,7 +31,7 @@ def starter(request):
 
     return render(request, 'starter.html')
 
-# @login_required
+@login_required
 def pro(request):
     amount = 599
     if request.method == "POST":
@@ -43,7 +43,7 @@ def pro(request):
         print (new_order_response)
     return render(request, 'pro.html')
 
-# @login_required
+@login_required
 def master(request):
     amount = 999
     if request.method == "POST":
@@ -59,7 +59,7 @@ def master(request):
 def success(request):
     return render(request, 'success.html')
 
-
+@login_required
 def order_callback1(request):
     print(request.POST)
     if request.method == "POST":
@@ -97,7 +97,7 @@ def order_callback1(request):
 
     return redirect("success")
 
-
+@login_required
 def order_callback2(request):
     print(request.POST)
     if request.method == "POST":
@@ -135,7 +135,7 @@ def order_callback2(request):
 
     return redirect("success")
 
-
+@login_required
 def order_callback3(request):
     print(request.POST)
     if request.method == "POST":

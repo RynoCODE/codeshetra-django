@@ -10,14 +10,14 @@ from django.contrib.auth.decorators import login_required
 
 
 
-# @login_required
+@login_required
 def lobby(request):
     return render(request, 'lobby.html')
-# @login_required
+@login_required
 def room(request):
     return render(request, 'room.html')
 
-
+@login_required
 def getToken(request):
     appId = "0984b5b2a7f841c7b956198420997674"
     appCertificate = "6ec6fd6f1c284145b3837c4c6fa487e0"
@@ -44,7 +44,7 @@ def createMember(request):
 
     return JsonResponse({'name':data['name']}, safe=False)
 
-
+@login_required
 def getMember(request):
     uid = request.GET.get('UID')
     room_name = request.GET.get('room_name')
