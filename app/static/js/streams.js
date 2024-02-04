@@ -21,7 +21,7 @@ let joinAndDisplayLocalStream = async () => {
         UID = await client.join(APP_ID, CHANNEL, TOKEN, UID)
     }catch(error){
         console.error(error)
-        window.open('/', '_self')
+        window.open('/dashboard', '_self')
     }
     
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks()

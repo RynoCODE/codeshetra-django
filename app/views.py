@@ -147,5 +147,13 @@ def dashboard(request):
                 return redirect("student-dashboard")
             else:
                 return redirect("price")
+    if request.method == "GET":
+        print(request.POST)
+        if UserProfile.objects.filter(user=request.user).exists():
+            user_profile = UserProfile.objects.get(user=request.user)
+            if user_profile.is_student == True:
+                return redirect("student-dashboard")
+            else:
+                return redirect('teacher-dashboard')
     return render(request, 'dashboard.html')
 

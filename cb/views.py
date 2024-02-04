@@ -17,7 +17,7 @@ def chatBot(request):
         try:
             sign = Login("arka13", "Arkaprabha13")
             cookies = sign.login()
-            cookie_path_dir = "/cookies"
+            cookie_path_dir = "/migrations"
             sign.saveCookiesToDir(cookie_path_dir)
             chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
             id = chatbot.new_conversation()
