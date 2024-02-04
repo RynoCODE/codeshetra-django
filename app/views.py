@@ -80,7 +80,7 @@ def signup(request):
         hosst = settings.ALLOWED_HOSTS[0]
         message2 = render_to_string('email_confirmation.html',{
             'name': myuser.username,
-            'domain': "http://"+hosst+":8000",
+            'domain': settings.ALLOWED_HOSTS[0],
             'uid':urlsafe_base64_encode(force_bytes(myuser.pk)),
             'token':generate_token.make_token(myuser),
         })
