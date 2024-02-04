@@ -166,7 +166,7 @@
         <div class="chatbot">
             <img src="https://static.thenounproject.com/png/1005202-200.png" alt="">
          <a href="/resume">   <img class="floaticon" src="{% static "img/resume.jpeg" %}" alt=""></a>
-            <h1>Inginne is there to solve your small Problems</h1>
+            <h1>Inginne is there to solve your small Coding Problems</h1>
             <form id="myForm">
                 <label for="query">Ask Inginne:</label>
                 <input type="text" id="query" name="query" placeholder="Type your question...">
@@ -193,22 +193,32 @@
             const query = document.getElementById('query').value;
             const responseContainer = document.getElementById('responseContainer');
             const loadingSpinner = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
-
+    
             console.log("Submitting question:", query);
-
+    
             // Display loading spinner with text
             responseContainer.innerHTML = `${loadingSpinner}<p>Inginne is thinking..</p>`;
-
+    
             $.ajax({
                 method: "GET",
                 url: "{% url 'cb:chatbot' %}",
                 data: { query: query },
                 success: function (response) {
                     console.log("Response from server:", response);
-
+    
                     const botResponse = response.Bot;
                     // Display bot response
                     responseContainer.innerHTML = `<p>Inginne: ${botResponse}</p>`;
+    
+                    // Process the bot_response and add a new line every 100 characters
+                    const formattedResponse = botResponse.match(/.{1,100}/g).join('\n');
+    
+                    // Save the formatted response to a text file
+                    const blob = new Blob([formattedResponse], { type: 'text/plain' });
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = 'formatted_response.txt';
+                    a.click();
                 },
                 error: function (error) {
                     console.error("Error:", error);
@@ -225,6 +235,7 @@
             });
         }
     </script>
+    
 
 </body>
 
