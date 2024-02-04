@@ -37,7 +37,7 @@ def signup(request):
             messages.error(request, 'Email alr exists!!')
             return redirect('/signup')
         #password checking
-        def password_validator(password):
+        if password:
             if len(password) < 8:
                 messages.error(request, "Password must be at least 8 characters long.")
                 return redirect ('signup/') 
