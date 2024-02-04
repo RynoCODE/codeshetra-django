@@ -14,7 +14,10 @@
    <style>
     .chatbot {
         text-align: center;
-        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .chatbot form {
@@ -41,9 +44,16 @@
         margin-top: 0.6rem;
         margin-right: 0.3rem;
     }
+    .chatbot form button{
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: none;
+        padding: 0.5rem 1rem;
+    }
 
     .chatbot form button:hover {
-        background-color: #e6e6e6;
+        background-color: #0366d0;
     }
 
     .chatbot #responseContainer {
@@ -65,10 +75,6 @@
         justify-content: center;
         height: 100vh;
         gap: 2rem;
-        flex-direction: column;
-    }
-    .container-answer{
-       margin: 20%;
     }
    
 
@@ -78,13 +84,14 @@
 
 <body>
     <div class="container-wrap">
-        <img src="https://static.thenounproject.com/png/1005202-200.png" alt="">
+       
         <div class="chatbot">
+            <img src="https://static.thenounproject.com/png/1005202-200.png" alt="">
             <h1>Inginne is there to solve your small Problems</h1>
             <form id="myForm">
                 <label for="query">Ask Inginne:</label>
                 <input type="text" id="query" name="query" placeholder="Type your question...">
-                <button type="button" onclick="submitQuestion()">Submit</button>
+                <button class="" type="button" onclick="submitQuestion()">Submit</button>
             </form>
             <div id="responseContainer">
                 <!-- Display bot responses here -->
