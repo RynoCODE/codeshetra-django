@@ -2,13 +2,12 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 from . import video
-from . import payment, dashboard
+from . import payment, dashboard, resume
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('signup/', views.signup, name='signup'),
     # path('student-help/', views.signup, name='student-help'),
-    path('student-help/', include('cb.urls')),  # Include your app's urls
 
     path('signin/', views.sigin, name='signin'),
     path('signout/', views.signout, name='signout'),
@@ -40,5 +39,6 @@ urlpatterns = [
     path('get_member/', video.getMember),
     path('delete_member/', video.deleteMember),
 
+    path('resume/', resume.gen_resume, name='resume'),
 
 ]
