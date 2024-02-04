@@ -89,14 +89,16 @@
             <img class="ms-2 logo " height= "24" src="{% static "img/teacher-icon.png" %}" alt="Logo" />
           </a>
           <h5 class="text-success pt-2 mt-1">{{request.user.username}}</h5>
+         
 
         </div>
-        <div class="d-flex gap-1">
+        <div class="d-flex gap-1 align-items-center">
           <!-- <a href="/price"
           ><button class="btn btn-outline-primary border-0">
             Add Credits
           </button></a
         > -->
+        <a class="nav-link btn me-2" href="/student_help">Student Center</a>
           <div
             class="d-flex gap-1 justify-content-center align-items-center me-4 mybtn"
           >
@@ -108,6 +110,7 @@
             />
             <a href="/price"> <i class="fa-solid fa-plus pe-2"></i></a>
           </div>
+        
           <a href="/lobby"><button class="btn btn-primary">Join Room</button></a>
         <a href="/signout"
           ><button class="btn btn-success me-2 border-0">Sign Out</button></a
