@@ -30,7 +30,7 @@
         height: 40px;
         width: auto;
       }
-
+    
         .mybtn {
           /* font-size: 32px;
           font-weight: 500; */
@@ -44,12 +44,35 @@
             -10px -10px 10px -1px rgba(255, 255, 255, 0);
         }
     .mybox{
-      height: 50vh;
-      width: 50vw;
-      max-height: 50vh;
-      overflow-y: scroll;
-      box-shadow: 10px 5px 5px rgb(41, 15, 15);
+      /* height: 75vh; */
+      width: 85vw;
 
+      /* box-shadow: 10px 5px 5px rgba(32, 31, 31, 0.6); */
+
+    }
+    .mybox ul li {
+    width: 85vw;
+    list-style: none;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #ddd; /* Lighter border color */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #f9f9f9; /* Light background */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.mybox ul li:hover {
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
+    
+
+    .container2 input{
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #000;
+      border-radius: 10px;
     }
     </style>
   </head>
@@ -59,47 +82,52 @@
       
       <!-- place navbar here -->
       <nav
-      class="navbar navbar-light bg-light d-flex justify-content-between align-items-center"
-    >
-      <div class="d-flex gap-1">
-        <a class="navbar-brand" href="#">
-          <img class="ms-2 logo " height= "24" src="{% static "img/teacher-icon.png" %}" alt="Logo" />
-        </a>
-        <h5 class="text-success pt-2 mt-1">{{request.user.username}}</h5>
-      </div>
-      <div class="d-flex gap-1">
-        <!-- <a href="/price"
-        ><button class="btn btn-outline-primary border-0">
-          Add Credits
-        </button></a
-      > -->
-        <div
-          class="d-flex gap-1 justify-content-center align-items-center me-4 mybtn"
-        >
-          <i class="fa-solid fa-money-check-dollar ps-1 pe-2"></i>
-          <input
-            class="border-0 bg-light pe-2"
-            type="button"
-            value="{{cred}}"
-          />
-          <a href="/price"> <i class="fa-solid fa-plus pe-2"></i></a>
+        class="navbar navbar-light bg-light d-flex justify-content-between align-items-center"
+      >
+        <div class="d-flex align-items-center justify-content-between">
+          <a class="navbar-brand" href="#">
+            <img class="ms-2 logo " height= "24" src="{% static "img/teacher-icon.png" %}" alt="Logo" />
+          </a>
+          <h5 class="text-success pt-2 mt-1">{{request.user.username}}</h5>
+
         </div>
-        <a href="/lobby"><button class="btn btn-primary">Join Room</button></a>
+        <div class="d-flex gap-1">
+          <!-- <a href="/price"
+          ><button class="btn btn-outline-primary border-0">
+            Add Credits
+          </button></a
+        > -->
+          <div
+            class="d-flex gap-1 justify-content-center align-items-center me-4 mybtn"
+          >
+            <i class="fa-solid fa-money-check-dollar ps-1 pe-2"></i>
+            <input
+              class="border-0 bg-light pe-2"
+              type="button"
+              value="{{cred}}"
+            />
+            <a href="/price"> <i class="fa-solid fa-plus pe-2"></i></a>
+          </div>
+          <a href="/lobby"><button class="btn btn-primary">Join Room</button></a>
         <a href="/signout"
           ><button class="btn btn-success me-2 border-0">Sign Out</button></a
         >
-      </div>
-    </nav>
+
+          
+        </div>
+
+        
+
+      </nav>
     {%for msg in messages%}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success  alert-dismissible fade show" role="alert">
       {{msg}}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     {% endfor %}
     </header>
     <main
-      style="height: 80vh"
-      class="d-flex flex-column align-items-center justify-content-center"
+      class="d-flex flex-column align-items-center mt-5 justify-content-center"
     >
       <h1 class="mx-auto">Want to connect With</h1>
       <h1 class="text-danger mx-auto">Interviewer ?</h1>
@@ -107,7 +135,9 @@
       <!-- search bar -->
       <form action="" method="post">
         {% csrf_token %}
-        <div class="container">
+        
+        <div class="container container2 d-flex align-items-center  ">
+          <h3>Shedule a <span class="text-primary">meeting:</span> </h3>
           <input type="text" placeholder="Topic..." name="topic" id="topic" />
           <input
             type="date"
@@ -141,15 +171,10 @@
         />
       </form>
 
-      <div class="mybox" id="aibot">
-
-
-      </div>
-
       <div class="mybox" id="interviewlist">
         <form action="" method="post">
           {% csrf_token %}
-          <h2>All Interviews</h2>
+          <h1 class="fs-1 ms-5 text-primary">All Interviews</h1>
         <ul>
           {% for interview in interviews %}
           {% if interview.done == False %}
@@ -159,7 +184,7 @@
             <strong>Time:</strong> {{ interview.time }} <br>
             <strong>Duration:</strong> {{ interview.duration }} minutes <br>
             <strong>Room number:</strong> {{ interview.room_id }} <br>
-            {% if  not interview.assigned_user %}
+            {% if  not interview.assigned_user %} 
             <strong>Waiting for an interviewer.</strong>
             {% else %}
             Assigned to: {{ interview.assigned_user.username }}

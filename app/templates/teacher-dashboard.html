@@ -38,6 +38,23 @@
         box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16),
           -10px -10px 10px -1px rgba(255, 255, 255, 0);
       }
+
+      .mybox ul li {
+    width: 85vw;
+    list-style: none;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #ddd; /* Lighter border color */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #f9f9f9; /* Light background */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.mybox ul li:hover {
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+}
     </style>
   </head>
 
@@ -91,8 +108,8 @@
       {% endfor %}
     </header>
     <main>
-      <div>
-        <h2>All Interviews</h2>
+      <div class="mybox">
+        <h1 class="ms-5 text-primary">All Interviews</h1>
         <ul>
           {% for interview in interviews %}
           {% if interview.done == False %}
