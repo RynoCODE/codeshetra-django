@@ -37,7 +37,7 @@ def signup(request):
             messages.error(request, 'Email alr exists!!')
             return redirect('/signup')
         #password checking
-        def password_validator(password):
+        if password:
             if len(password) < 8:
                 messages.error(request, "Password must be at least 8 characters long.")
                 return redirect ('signup/') 
@@ -147,5 +147,13 @@ def dashboard(request):
                 return redirect("student-dashboard")
             else:
                 return redirect("price")
+    if request.method == "GET":
+        print(request.POST)
+        if UserProfile.objects.filter(user=request.user).exists():
+            user_profile = UserProfile.objects.get(user=request.user)
+            if user_profile.is_student == True:
+                return redirect("student-dashboard")
+            else:
+                return redirect('teacher-dashboard')
     return render(request, 'dashboard.html')
 

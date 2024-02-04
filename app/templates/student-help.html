@@ -167,6 +167,7 @@
             <img src="https://static.thenounproject.com/png/1005202-200.png" alt="">
          <a href="/resume">   <img class="floaticon" src="{% static "img/resume.jpeg" %}" alt=""></a>
             <h1>Inginne is there to solve your small Coding Problems</h1>
+            <h1>Inginne is there to solve your small Coding Problems</h1>
             <form id="myForm">
                 <label for="query">Ask Inginne:</label>
                 <input type="text" id="query" name="query" placeholder="Type your question...">
@@ -194,10 +195,13 @@
             const responseContainer = document.getElementById('responseContainer');
             const loadingSpinner = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
     
+    
             console.log("Submitting question:", query);
+    
     
             // Display loading spinner with text
             responseContainer.innerHTML = `${loadingSpinner}<p>Inginne is thinking..</p>`;
+    
     
             $.ajax({
                 method: "GET",
@@ -205,6 +209,7 @@
                 data: { query: query },
                 success: function (response) {
                     console.log("Response from server:", response);
+    
     
                     const botResponse = response.Bot;
                     // Display bot response
@@ -235,6 +240,7 @@
             });
         }
     </script>
+    
     
 
 </body>
