@@ -1,6 +1,8 @@
 # Codeshetra-Django Project
 
 Codeshetra is a Django project designed to facilitate mock interviews. It provides a platform where interviewees can participate in mock interviews and interviewers can conduct interviews while earning money. The project utilizes Django along with HTML, CSS, and JavaScript, and integrates Razorpay for payment processing. It also incorporates webRTC for real-time video chat capabilities.
+Working on AI chatbot which can  understand and respond to user queries. The project is built using Django, a high-level Python web
+
 
 ## Features
 ### Confirmation Email Authentication System
