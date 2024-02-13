@@ -1,71 +1,31 @@
+
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Mock Interview Prep</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
     />
-  
     <style>
-      .cards:hover {
-    filter: grayscale(100%);
-    background: url({% static "img/bg-1.jpg" %});
-    margin-top: 1rem;
-
+      #logo {
+        height: 3rem;
+      } 
+    .cards {
+    height: 50vh ;
+    border-radius: 1rem;
+    background: url("{% static "img/bg-1.jpg" %}");
+    padding-top: 7.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
-    .navbar{
-      width: 100vw;
-    }
-    .logo{
-      height: 40px;
-      min-width: 100%;
-    }
-
-    body{
-      overflow-x: hidden;
-      overflow-y: hidden;
-
-    }
-    /* Width and color of the track */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #271ec8;
-}
-
-/* Handle on scrollbar */
-::-webkit-scrollbar-thumb {
-  background: #186cd3;
-}
-
-/* Handle on active */
-::-webkit-scrollbar-thumb:active {
-  background-color: #186cd3;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #eee;
-}
-
-/* Handle */
-::-webkit-scrollbar-handle {
-  background: #ddd;
-}
-
-.para {
-    min-width: 35rem !important;
-    
-  }
-
-  section1 {
+section1 {
   
   width: 100%;
   height: 100vh;
@@ -112,7 +72,7 @@
 }
 
 .button:hover {
-  background-color: rgb(232, 250, 232);
+
   filter: drop-shadow(0 1mm 1mm rgb(160, 0, 210));
 }
 
@@ -195,91 +155,145 @@
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
   box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
 
+
 }
 
-.card1 a:hover {
-  text-decoration: none;
+.nvbar{
+  background-color: transparent !important;
 }
 
+@media screen and (min-width : 600px ){
 
+ body{
+  overflow-x: hidden;
+ }
+  .hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 85vh;
+   
+  }
+  .para{
+    width: 85%;
+  }
+  .illustration{
+    object-fit: cover;
+    width: 50vw;
     
+  }
+  .herotxt{
+    width: 50vw;
+    margin-left: 5rem;
+  }
+  .card-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+  }
+  .cards {
+    height: 60vh;
+    width: 30vw;
+    border-radius: 1rem;
+    padding-top: 7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: 0.7s all;
+}
+.cards:hover{
+  scale:  1.05;
+  filter: drop-shadow(0 0 0.75rem royalblue);
+  filter: grayscale(1.5);
+}
+.features{
+  height: 75vh;
+}
+
+.about-part{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin: 3rem;
+}
+.aboutimg{
+  width: 50vw !important; 
+}
+
+
+  
+}
+
     </style>
-
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-    crossorigin="anonymous"
-  />
-    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <link rel="stylesheet" href="{% static "css/style.css" %}"/>
   </head>
-
   <body>
     <header>
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-items-center ">
-        <a class="navbar-brand ps-5" href="#">
-          <img class="logo" src="{% static "img/logo.png" %}" alt="Logo" />
-      </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-nav gap-5">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-
-          <a class="nav-link" href="/student_help">Student Center</a>
-          <a class="nav-link" href="#features">Features</a>
-          <a class="nav-link" href="#pricing">Pricing</a>
-          <a class="nav-link" href="#aboutus">About Us</a>
-         
-          <div class="nav-btn pe-5">
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary nvbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><a class="navbar-brand" href="#">
+            <img class="logo" height="50" src="{% static "img/logo.png" %}" alt="Logo" />
+        </a></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="/student_help">Student Center</a></li>
+              <li class="nav-item">  <a class="nav-link" href="#features">Features</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#pricing">Pricing</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#aboutus">About Us</a></li>
+            </ul>
             <a class=" ms-4 me-1 btn btn-outline-success" href="signin" id="sign-in">Sign In</a>
             <a name="" id="sign-up" class="btn btn-primary" href="signup" role="button">Sign Up</a>
+            
           </div>
         </div>
       </nav>
-    </header>
 
+    </header>
+    <!-- main section -->
     <main>
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="text-part d-flex align-items-center ms-5">
-          <div>
+      <!-- hero section -->
+     
+       <section class="hero mt-5">
+        <div class="text-part d-flex align-items-center ms-3">
+          <div class="herotxt">
             <h1 class="mb-3">Supercharge Your Interview Skills</h1>
             <p class="para">
               Elevate your interview performance with unlimited mock interviews, personalized feedback, and real-time evaluation. Prepare confidently and land your dream job!
             </p>
             <a class="me-4" href="/aboutus">Learn More</a>
-            <a name="" id="" class="btn btn-primary" href="/signup" role="button">Get Started</a>
+            <a name="" id="" class="btn border-0 btn-primary" href="/signup" role="button">Get Started</a>
           </div>
         </div>
         <div class="image-part me-5">
-          <img class="illustration" src="{% static "img/illustration.jpg" %}" alt="Illustration" />
+          <img width="150%" class="illustration mx-auto" src="{% static "img/illustration.jpg" %}" alt="Illustration" />
         </div>
       </section>
-
       <!-- Key Features Section -->
-      <section id="features" class="features py-5">
-        <h1 class="my-5 text-center">Key Features</h1>
-        <div class="card-list d-flex gap-4 justify-content-center">
-          <div class="cards card bg-primary text-white" id="car1">
+      <section id="features" class="features">
+        <h1 class="my-4 text-center display-4 fw-medium">Key Features</h1>
+        <div class="card-list justify-content-center ms-1 me-1 ">
+          <div class="cards card bg-primary text-white w-80 mb-3 mx-auto ms-2 me-2" id="car1">
             <h2>Unlimited Mock Interviews</h2>
             <p>
               Sharpen your interview skills with an endless supply of practice interviews, tailored to your needs.
             </p>
           </div>
-          <div class="cards card mycolor text-white" id="card2">
+          <div class="cards card bg-primary mb-3 text-white w-80 mx-auto ms-2 me-2" id="card2">
             <h2>Video Connection</h2>
             <p>
               Seamlessly connect with your interviewer through high-quality video interviews for a realistic experience.
             </p>
           </div>
-          <div class="cards card bg-primary text-white" id="card3">
+          <div class="cards card bg-primary mb-3 text-white w-80 mx-auto ms-2 me-2" id="card3">
             <h2>Detailed Evaluation</h2>
             <p>
               Receive feedback and performance evaluation to identify areas of improvement and refine your strategy.
@@ -287,13 +301,11 @@
           </div>
         </div>
       </section>
-
-      <!-- About Us Section -->
       <section class="aboutus" id="aboutus" >
-        <h1 class="text-center mb-5">About Us</h1>
-        <div class="about-part d-flex justify-content-center gap-5">
-          <img class="ms-4 aboutimg" src="{% static "img/about us.jpg" %}" alt="About Us Image" />
-          <div class="about-text me-4">
+        <h1 class="text-center display-4 fw-medium mb-4 my-5">About Us</h1>
+        <div class="about-part">
+          <img class=" aboutimg w-100" src="{% static "img/about us.jpg" %}" alt="About Us Image" />
+          <div class="about-text m-3">
             <h2>Our Journey</h2>
             <p>
               Discover our story and commitment to providing you with the best resources for interview preparation. We believe in your potential and are here to support your career aspirations.
@@ -302,13 +314,13 @@
           </div>
         </div>
       </section>
-
       <section class="pricing" id="pricing">
           
 
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-          <h1 class="display-4 fw-normal">Choose a Plan that Fits You</h1>
-          <p class="fs-5 text-muted">
+        <div class="p-3 pb-md-4 mx-auto text-center">
+          <h1 class="display-4 fw-medium mb-4 my-4">Pricing</h1>
+          <h3 class="text-start mt-5 ">Plans & Pricing</h3>
+          <p class="fs-5 text-muted text-start">
             Unlock your full potential with our flexible pricing plans. Whether you're just getting started or aiming for mastery, we have a plan to suit your needs. Elevate your interview game and secure your success!
           </p>
         </div>
@@ -318,7 +330,7 @@
           <div class="container-fluid">
             <div class="container">
               <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-4">
                   <div class="card1 text-center">
                     <div class="title">
                       <i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -345,7 +357,7 @@
                   </div>
                 </div>
                 <!-- END Col one -->
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-4">
                   <div class="card1 text-center">
                     <div class="title">
                       <i class="fa fa-plane" aria-hidden="true"></i>
@@ -372,7 +384,7 @@
                   </div>
                 </div>
                 <!-- END Col two -->
-                <div class="col-sm-4">
+                <div class="col-sm-4 mb-4">
                   <div class="card1 text-center">
                     <div class="title">
                       <i class="fa fa-rocket" aria-hidden="true"></i>
@@ -404,7 +416,7 @@
           </div>
         </section>
 
-            <h2 class="display-6 text-center mt-5 mb-4">Compare plans</h2>
+            <h2 class="display-4 text-center mt-5 mb-4 fw-medium">Compare plans</h2>
 
             <div class="table-responsive">
               <table class="table text-center">
@@ -476,89 +488,82 @@
               </table>
             </div>
           </main>
-
-          <footer class="pt-4 my-md-5 pt-md-5 border-top">
-            <div class="row">
-              <div class="col-12 col-md">
-                <img
-                  class="mb-2"
-                  src="{% static "img/logo.png" %}"
-                  alt=""
-                  width="200"
-                  height="auto"
-                />
-              </div>
-              <div class="col-6 col-md">
-                <h5>Features</h5>
-                <ul class="list-unstyled text-small">
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      >Cool stuff</a
-                    >
-                  </li>
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      > feature</a
-                    >
-                  </li>
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      >Our developers</a
-                    >
-                  </li>
-                  
-                </ul>
-              </div>
-              <div class="col-6 col-md">
-                <h5>Resources</h5>
-                <ul class="list-unstyled text-small">
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      >Resource</a
-                    >
-                  </li>
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      >Tech Stack</a
-                    >
-                  </li>
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      >Contribute</a
-                    >
-                  </li>
-                
-                </ul>
-              </div>
-              <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      >Team</a
-                    >
-                  </li>
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      >Locations</a
-                    >
-                  </li>
-                  <li class="mb-1">
-                    <a class="link-secondary text-decoration-none" href="#"
-                      >Privacy</a
-                    >
-                  </li>
-                 
-                </ul>
-              </div>
-            </div>
-          </footer>
-      </section>
-    </main>
-    <footer>
-      <!-- place footer here -->
+      <footer class="pt-4 my-md-5 pt-md-5 border-top ">
+        <div class="row ms-3">
+          <div class="col-12 col-md">
+            <img
+              class="mb-2"
+              src="{% static "img/logo.png" %}"
+              alt=""
+              width="200"
+              height="auto"
+            />
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Cool stuff</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  > feature</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Our developers</a
+                >
+              </li>
+              
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Resource</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Tech Stack</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Contribute</a
+                >
+              </li>
+            
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Team</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Locations</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Privacy</a
+                >
+              </li>
+             
+            </ul>
+          </div>
+        </div>
     </footer>
-    <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -569,24 +574,6 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
-
-    <script>
-      document.body.style.overflowY = "hidden";
-
-window.addEventListener("wheel", function (e) {
-    if (e.deltaY !== 0) {
-        document.body.style.overflowY = "scroll";
-    }
-});
-    </script>
-    <script>
-      if (window.innerWidth >= 400) {
-    window.location.href = 'index.html'; // Redirect to index1.html for larger screens
-} else {
-    window.location.href = 'index1.html'; // Redirect to index2.html for smaller screens
-}
-
-    </script>
-  
+   
   </body>
 </html>
