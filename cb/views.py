@@ -15,7 +15,7 @@ def chatBot(request):
         print("Query:", query)
 
         try:
-            sign = Login("arka13", "Arkaprabha13")
+            sign = Login("username", "password")
             cookies = sign.login()
             # cookie_path_dir = "/migrations"
             # sign.saveCookiesToDir(cookie_path_dir)
