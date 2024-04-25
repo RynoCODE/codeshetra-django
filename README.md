@@ -50,6 +50,7 @@ Working on AI chatbot which can  understand and respond to user queries. The pro
 - [Rohit](https://github.com/RynoCODE)
 - [Anurag](https://github.com/codecxAb)
 - [Arkaprabha](https://github.com/Arkaprabha13)
+- [Rounak Nayak](https://github.com/RounakNayak)
 
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
